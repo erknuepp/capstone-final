@@ -35,7 +35,7 @@ module.exports = class YooxPage extends BasePage {
     }
 
     async clickNewArrivals() {
-        await this.click(this.searchIconBy)
+        await this.click(this.newArrivalsBy)
     }
 
     async dismissPopUp() {
