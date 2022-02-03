@@ -1,8 +1,6 @@
 const { By, until, WebDriver } = require("selenium-webdriver");
 
 module.exports = class BasePage {
-    /* driver;
-    url; */
 
     constructor(myDriver, myUrl) {
         this.driver = myDriver
@@ -21,7 +19,7 @@ module.exports = class BasePage {
     async getElement(elementBy) {
         await this.driver.wait(until.elementLocated(elementBy));
         let element = await this.driver.findElement(elementBy);
-        //await this.driver.wait(until.elementIsVisible(elementBy));
+        await this.driver.wait(until.elementIsVisible(element));
         return element;
     }
 
