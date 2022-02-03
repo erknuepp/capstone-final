@@ -1,7 +1,7 @@
-const { Builder, Capabilities } = require("selenium-webdriver")
-const YooxPage = require("./yooxPage")
-const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-const yooxPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
+const { Builder, Capabilities } = require("selenium-webdriver");
+const YooxPage = require("./yooxPage");
+const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
+const yooxPage = new YooxPage(driver, 'https://www.yoox.com/us/women');
 
 // Clean up driver after test
 afterEach(async() => {

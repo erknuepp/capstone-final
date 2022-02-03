@@ -1,7 +1,7 @@
 const { Builder, Capabilities } = require("selenium-webdriver")
-const EbayPage = require("./ebayPage")
-const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-const ebayPage = new EbayPage(driver, 'https://www.ebay.com/')
+const EbayPage = require("./ebayPage");
+const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
+const ebayPage = new EbayPage(driver, 'https://www.ebay.com/');
 
 // Clean up driver after test
 afterEach(async() => {
@@ -12,6 +12,6 @@ afterEach(async() => {
     in search bar, enter puppies, after successful, quit */
 
 test('Searching eBay', async() => {
-    await ebayPage.navigate()
-    await ebayPage.doSearch('puppies')
+    await ebayPage.navigate();
+    await ebayPage.doSearch('puppies');
 }, 30000)

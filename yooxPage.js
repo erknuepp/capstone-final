@@ -12,11 +12,11 @@ module.exports = class YooxPage extends BasePage {
     popUpBy = By.xpath('//*[@id="firstVisitChangeCountryLayer"]/div[1]/button');
     clothingBy = By.xpath('//*[@id="js-newarrivalswomen"]/div[1]/div/div[1]/div/div[1]/a');
     designersBy = By.xpath('//*[@id="sections-menu"]/li[2]/span');
-    burberryDesignerBy = By.xpath('//*[@id="js-designerswomen"]/div[1]/div/div[1]/div[2]/div[5]/a')
+    burberryDesignerBy = By.xpath('//*[@id="js-designerswomen"]/div[1]/div/div[1]/div[2]/div[5]/a');
 
     constructor(driver, url) {
-        super(driver, url)
-            // when we use super we are calling the original element & methods from the base page //
+        super(driver, url);
+        // when we use super we are calling the original element & methods from the base page //
     }
 
     // methods //
@@ -50,6 +50,6 @@ module.exports = class YooxPage extends BasePage {
     }
 
     async clickBurberryDesigner() {
-        return await this.click(this.burberryDesignerBy)
+        return await this.click(this.burberryDesignerBy);
     }
 }
