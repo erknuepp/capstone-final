@@ -1,7 +1,8 @@
 const { Builder, Capabilities } = require("selenium-webdriver")
 const YooxPage = require("./yooxPage")
+const YooxNewArrivalsPage = require("./yooxNewArrivalsPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-var myPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
+var yooxPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
 // Clean up driver after test
 afterEach(async() => {
@@ -9,14 +10,13 @@ afterEach(async() => {
 });
 
 test('Yoox menu', async() => {
-    await myPage.navigate()
 
-    // select "new arrivals" //
+    await yooxPage.navigate();
 
-    // select 1st option of drop down: "clothing" //
+    await yooxPage.clickNewArrivals();
+    await yooxPage.clickClothing();
 
-    // select 1st clothing item in array //
+    const newArrivalsPage = new YooxNewArrivalsPage(driver, null);
+    await newArrivalsPage.clickFirstClothingItem();
 
-
-    await myPage.driver.quit()
 }, 30000)
