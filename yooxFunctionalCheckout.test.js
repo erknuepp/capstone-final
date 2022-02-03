@@ -27,8 +27,9 @@ test('Yoox checkout', async() => {
     await clothingItemPage.clickSmallSize();
     clothingItemPage = new YooxClothingItemPage(driver, null);
     await clothingItemPage.clickAddToShoppingBag();
-    await clothingItemPage.clickGoToCart();
-
+    await new Promise(r => setTimeout(r, 3000));
+    await clothingItemPage.clickShoppingBagIcon();
+    await new Promise(r => setTimeout(r, 2000));
     const shoppingBagPartial = new YooxShoppingBagPartial(driver, null);
     await shoppingBagPartial.clickGoToShoppingBag();
 

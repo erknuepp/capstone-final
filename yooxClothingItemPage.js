@@ -7,8 +7,8 @@ module.exports = class YooxClothingItemPage extends BasePage {
 
     sizesBy = By.xpath('//*[@id="teleyooxMysizes"]/div[1]/div[3]');
     sizeSmallBy = By.xpath('//*[@id="scrollContent"]/div[3]/div/div[2]/div/div/div/div[2]/div/div/span[1]')
-    addToShoppingBagButtonBy = By.xpath('//*[@id="addToCart"]/button')
-    cartBy = By.xpath('//*[@id="cart-badge"]/a')
+    addToShoppingBagButtonBy = By.id('addToCart')
+    shoppingBagIconBy = By.xpath('//*[@id="cart-badge"]/a')
 
     constructor(driver, url) {
         super(driver, url)
@@ -29,7 +29,7 @@ module.exports = class YooxClothingItemPage extends BasePage {
         return await this.click(this.addToShoppingBagButtonBy);
     }
 
-    async clickGoToCart() {
-        return await this.click(this.cartBy);
+    async clickShoppingBagIcon() {
+        return await this.click(this.shoppingBagIconBy);
     }
 }

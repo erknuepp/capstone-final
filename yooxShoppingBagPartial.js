@@ -5,7 +5,7 @@ module.exports = class YooxShoppingBagPatial extends BasePage {
 
     // selectors //
 
-    goToShoppingBagBy = By.xpath('//*[@id="goToCheckOut"]')
+    goToShoppingBagBy = By.id('goToCheckOut')
 
     constructor(driver, url) {
         super(driver, url)
