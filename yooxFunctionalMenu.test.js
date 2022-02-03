@@ -1,7 +1,7 @@
 const { Builder, Capabilities } = require("selenium-webdriver")
 const YooxPage = require("./yooxPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-var myPage = new YooxPage(driver, 'https://www.yoox.com/')
+var myPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
 // navigate to yoox //
 

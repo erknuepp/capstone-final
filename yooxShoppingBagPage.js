@@ -3,13 +3,11 @@ const BasePage = require("./basePage")
 
 // navigate to yoox //
 
-module.exports = class YooxCartPage extends BasePage {
+module.exports = class YooxShoppingBagPage extends BasePage {
     // selectors //
 
     // select "goto shopping bag" //
-    goToShoppingBagBy = By.xpath('//*[@id="goToCheckOut"]')
-        // select "proceed with order" //
-    selectText = By.xpath('//*[@id="trkNextBottom"]/span')
+    proceedWithOrderBy = By.id('trkNextTop')
 
     constructor(driver, url) {
         super(driver, url)
@@ -18,7 +16,7 @@ module.exports = class YooxCartPage extends BasePage {
 
     // methods //
 
-    async clickShoppingBag() {
-        return await this.click(this.goToShoppingBagBy);
+    async clickProceedWithYourOrder() {
+        return await this.click(this.proceedWithOrderBy);
     }
 }

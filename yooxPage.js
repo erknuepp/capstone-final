@@ -18,6 +18,7 @@ module.exports = class YooxPage extends BasePage {
     goToCheckoutButtonBy = By.xpath('//*[@id="goToCheckOut"]')
     proceedWithOrderButtonBy = By.xpath('//*[@id="trkNextBottom"]/span')
     headerBy = By.xpath('//*[@id="logo-splash"]/div/h1/span')
+    popUpBy = By.xpath('//*[@id="firstVisitChangeCountryLayer"]/div[1]/button')
 
     constructor(driver, url) {
         super(driver, url)
@@ -31,6 +32,14 @@ module.exports = class YooxPage extends BasePage {
 
     async clickWomen() {
         await this.click(this.womenSpanBy)
+    }
+
+    async clickNewArrivals() {
+        await this.click(this.searchIconBy)
+    }
+
+    async dismissPopUp() {
+        await this.click(this.popUpBy)
     }
 
     async clickSearchIcon() {
