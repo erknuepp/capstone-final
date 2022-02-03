@@ -16,7 +16,7 @@ test('Filter eBay', async() => {
     // scroll down left column to "condition", click "new" //
     myPage = new EbayPage(driver, 'https://www.ebay.com/');
     await myPage.filterConditionNew();
-    await myPage.driver.quit();
+
     myPage = new EbayPage(driver, 'https://www.ebay.com/')
         // continue scrolling down left column to "shipping options", click "free" //
     await myPage.filterFreeShipping();
@@ -25,4 +25,4 @@ test('Filter eBay', async() => {
     await myPage.filterShowOnlyFreeReturns();
     // scroll further down left column to "see all", click //
     myPage = new EbayPage(driver, 'https://www.ebay.com/');
-}, 60000);
+});

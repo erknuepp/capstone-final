@@ -1,18 +1,17 @@
 const { Builder, Capabilities } = require("selenium-webdriver")
 const EbayPage = require("./ebayPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-const myPage = new EbayPage(driver, 'https://www.ebay.com/')
+const ebayPage = new EbayPage(driver, 'https://www.ebay.com/')
 
 // Clean up driver after test
-afterEach(() => {
-    homePage.driver.quit();
+afterEach(async() => {
+    await ebayPage.driver.quit();
 });
 
 /* navigate to ebay 
     in search bar, enter puppies, after successful, quit */
 
 test('Searching eBay', async() => {
-    await myPage.navigate()
-    await myPage.doSearch('puppies')
-    await driver.quit()
-})
+    await ebayPage.navigate()
+    await ebayPage.doSearch('puppies')
+}, 30000)
