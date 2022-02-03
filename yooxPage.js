@@ -8,7 +8,7 @@ module.exports = class YooxPage extends BasePage {
     searchIconBy = By.xpath('//*[@id="fayt-controls"]/svg/use')
     searchInputBy = By.id('js-text-search-input')
     newArrivalsBy = By.xpath('//*[@id="sections-menu"]/li[1]/span')
-    headerBy = By.xpath('//*[@id="logo-splash"]/div/h1/span')
+    headerBy = By.xpath('//*[@id="logo"]/h1/a')
     popUpBy = By.xpath('//*[@id="firstVisitChangeCountryLayer"]/div[1]/button')
     clothingBy = By.xpath('//*[@id="js-newarrivalswomen"]/div[1]/div/div[1]/div/div[1]/a');
 

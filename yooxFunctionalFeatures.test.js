@@ -1,7 +1,7 @@
 const { Builder, Capabilities } = require("selenium-webdriver")
 const YooxPage = require("./yooxPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-const myPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
+const yooxPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
 // Clean up driver after test
 afterEach(async() => {
@@ -9,7 +9,7 @@ afterEach(async() => {
 });
 
 test('Yoox features', async() => {
-    await myPage.navigate()
+    await yooxPage.navigate()
         // select "designer" from (top left toolbar) //
     selectText = By.Xpath('//*[@id="sections-menu"]/li[2]/span')
         // select "Burberry" from drop down //
