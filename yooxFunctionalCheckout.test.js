@@ -5,20 +5,20 @@ const YooxClothingItemPage = require("./yooxClothingItemPage")
 const YooxShoppingBagPartial = require("./yooxShoppingBagPartial")
 const YooxShoppingBagPage = require("./yooxShoppingBagPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-var homePage = new YooxPage(driver, 'https://www.yoox.com/us/women')
+var yooxPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
 // Clean up driver after test
 afterEach(async() => {
-    await homePage.driver.quit();
+    await yooxPage.driver.quit();
 });
 
 
 test('Yoox checkout', async() => {
 
-    await homePage.navigate();
-    await homePage.dismissChangeCountryPopUp();
-    await homePage.clickNewArrivals();
-    await homePage.clickClothing();
+    await yooxPage.navigate();
+    await yooxPage.dismissChangeCountryPopUp();
+    await yooxPage.clickNewArrivals();
+    await yooxPage.clickClothing();
 
     const newArrivalsPage = new YooxNewArrivalsPage(driver, null);
     await newArrivalsPage.clickFirstClothingItem();

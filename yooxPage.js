@@ -11,8 +11,8 @@ module.exports = class YooxPage extends BasePage {
     headerBy = By.xpath('//*[@id="logo"]/h1/a');
     popUpBy = By.xpath('//*[@id="firstVisitChangeCountryLayer"]/div[1]/button');
     clothingBy = By.xpath('//*[@id="js-newarrivalswomen"]/div[1]/div/div[1]/div/div[1]/a');
-    designersBy = By.Xpath('//*[@id="sections-menu"]/li[2]/span');
-    burberryDesignerBy = By.Xpath('//*[@id="js-designerswomen"]/div[1]/div/div[1]/div[2]/div[5]/a')
+    designersBy = By.xpath('//*[@id="sections-menu"]/li[2]/span');
+    burberryDesignerBy = By.xpath('//*[@id="js-designerswomen"]/div[1]/div/div[1]/div[2]/div[5]/a')
 
     constructor(driver, url) {
         super(driver, url)
