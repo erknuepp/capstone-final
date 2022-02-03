@@ -5,7 +5,7 @@ const BasePage = require("./basePage")
 
 module.exports = class YooxNewArrivalsPage extends BasePage {
     // selectors //
-    clothingBy = By.xpath('//*[@id="js-newarrivalswomen"]/div[1]/div/div[1]/div/div[1]/a');
+
     clothingItemImageBy = By.xpath('//*[@id="item_47296276LR"]/div[1]/a/img')
     sizeSmallBy = By.xpath('//*[@id="scrollContent"]/div[3]/div/div[2]/div/div/div/div[2]/div/div/span[1]')
     addToCartButtonBy = By.xpath('//*[@id="addToCart"]/button')
@@ -16,9 +16,7 @@ module.exports = class YooxNewArrivalsPage extends BasePage {
     }
 
     // methods //
-    async clickClothing() {
-        return await this.click(this.clothingBy);
-    }
+
 
     async clickFirstClothingItem() {
         return await this.click(this.clothingItemImageBy);

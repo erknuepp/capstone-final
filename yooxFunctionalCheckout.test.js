@@ -1,7 +1,7 @@
 const { Builder, Capabilities } = require("selenium-webdriver")
 const YooxPage = require("./yooxPage")
 const YooxNewArrivalsPage = require("./yooxNewArrivalsPage")
-const YooxClothingNewArrivalsPage = require("./yooxClothingNewArrivalsPage")
+const YooxClothingItemPage = require("./yooxClothingItemPage")
 const YooxShoppingBagPartial = require("./yooxShoppingBagPartial")
 const YooxShoppingBagPage = require("./yooxShoppingBagPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
@@ -16,25 +16,21 @@ afterEach(async() => {
 test('Yoox checkout', async() => {
 
     await homePage.navigate();
-
     await homePage.dismissChangeCountryPopUp();
-
-    // select "new arrivals" //
     await homePage.clickNewArrivals();
+    await homePage.clickClothing();
 
-    // select 1st option of drop down: "clothing" //
     const newArrivalsPage = new YooxNewArrivalsPage(driver, null);
-    await newArrivalsPage.clickClothing();
+    await newArrivalsPage.clickFirstClothingItem();
 
-    // select 1st clothing item in array //
-    const clothingNewArrivalsPage = new YooxClothingNewArrivalsPage(driver, null);
-    await clothingNewArrivalsPage.clickFirstClothingItem();
-    await clothingNewArrivalsPage.clickSmallSize();
-    await clothingNewArrivalsPage.clickAddToCart();
-    await clothingNewArrivalsPage.clickGoToCart();
+    let clothingItemPage = new YooxClothingItemPage(driver, null);
+    await clothingItemPage.clickSmallSize();
+    clothingItemPage = new YooxClothingItemPage(driver, null);
+    await clothingItemPage.clickAddToShoppingBag();
+    await clothingItemPage.clickGoToCart();
 
     const shoppingBagPartial = new YooxShoppingBagPartial(driver, null);
-    await shoppingBagPartial.clickShoppingBag();
+    await shoppingBagPartial.clickGoToShoppingBag();
 
     const shoppingBagPage = new YooxShoppingBagPage(driver, null);
     await shoppingBagPage.clickProceedWithYourOrder();

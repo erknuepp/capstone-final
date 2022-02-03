@@ -1,12 +1,10 @@
 const { By } = require("selenium-webdriver")
 const BasePage = require("./basePage")
 
-// navigate to yoox //
-
 module.exports = class YooxShoppingBagPatial extends BasePage {
+
     // selectors //
 
-    // select "goto shopping bag" //
     goToShoppingBagBy = By.xpath('//*[@id="goToCheckOut"]')
 
     constructor(driver, url) {
@@ -16,7 +14,7 @@ module.exports = class YooxShoppingBagPatial extends BasePage {
 
     // methods //
 
-    async clickShoppingBag() {
+    async clickGoToShoppingBag() {
         return await this.click(this.goToShoppingBagBy);
     }
 }
