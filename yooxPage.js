@@ -38,7 +38,7 @@ module.exports = class YooxPage extends BasePage {
         await this.click(this.newArrivalsBy)
     }
 
-    async dismissPopUp() {
+    async dismissChangeCountryPopUp() {
         await this.click(this.popUpBy)
     }
 

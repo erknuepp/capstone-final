@@ -7,9 +7,9 @@ const YooxShoppingBagPage = require("./yooxShoppingBagPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 var homePage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
-// navigate to yoox //
+// Clean up driver after test
 afterEach(() => {
-    //homePage.driver.quit();
+    homePage.driver.quit();
 });
 
 
@@ -17,7 +17,7 @@ test('Yoox checkout', async() => {
 
     await homePage.navigate();
 
-    await homePage.dismissPopUp();
+    await homePage.dismissChangeCountryPopUp();
 
     // select "new arrivals" //
     await homePage.clickNewArrivals();

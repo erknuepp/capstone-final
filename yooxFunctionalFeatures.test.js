@@ -3,7 +3,10 @@ const YooxPage = require("./yooxPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 const myPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
-// navigate to yoox //
+// Clean up driver after test
+afterEach(() => {
+    homePage.driver.quit();
+});
 
 test('Yoox features', async() => {
     await myPage.navigate()

@@ -7,7 +7,10 @@ const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 var myPage = new EbayPage(driver, 'https://www.ebay.com/')
 
 
-// navigate to ebay //
+// Clean up driver after test
+afterEach(() => {
+    homePage.driver.quit();
+});
 
 test('My eBay', async() => {
     await myPage.navigate()

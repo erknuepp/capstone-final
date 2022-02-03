@@ -1,7 +1,11 @@
 const { Builder, Capabilities } = require("selenium-webdriver");
 const EbayPage = require("./ebayPage");
-jest.useRealTimers();
 
+
+// Clean up driver after test
+afterEach(() => {
+    homePage.driver.quit();
+});
 
 test('Filter eBay', async() => {
     const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
