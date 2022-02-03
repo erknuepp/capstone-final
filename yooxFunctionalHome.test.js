@@ -4,8 +4,8 @@ const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 const myPage = new YooxPage(driver, 'https://www.yoox.com/us/women');
 
 // Clean up driver after test
-afterEach(() => {
-    homePage.driver.quit();
+afterEach(async() => {
+    await homePage.driver.quit();
 });
 
 test('Yoox home page loads', async() => {
@@ -18,4 +18,4 @@ test('Yoox home page loads', async() => {
     expect(actualHeaderText).toBe('YOOX');
 
     await myPage.driver.quit();
-})
+}, 30000)

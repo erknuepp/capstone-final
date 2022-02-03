@@ -4,17 +4,16 @@ const MyEbayPage = require("./myEbayPage")
 const EbayUserNamePage = require("./ebayUserNamePage")
 const EbayPasswordPage = require("./ebayPasswordPage")
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-var myPage = new EbayPage(driver, 'https://www.ebay.com/')
-
+var ebayPage = new EbayPage(driver, 'https://www.ebay.com/')
 
 // Clean up driver after test
-afterEach(() => {
-    homePage.driver.quit();
+afterEach(async() => {
+    await ebayPage.driver.quit();
 });
 
 test('My eBay', async() => {
-    await myPage.navigate()
-    await myPage.clickMyEbay()
+    await ebayPage.navigate()
+    await ebayPage.clickMyEbay()
     var ebayUserNamePage = new EbayUserNamePage(driver, null)
     await ebayUserNamePage.userNameInput("decadentmobile@gmail.com")
     await ebayUserNamePage.clickContinue()
@@ -24,5 +23,5 @@ test('My eBay', async() => {
     var myEbayPage = new MyEbayPage(driver)
     await myEbayPage.clickFindDeals()
     expect(driver.getCurrentUrl()).toBe('https://www.ebay.com/help/buying/search-tips/search-tips?id=4006')
-    await myPage.driver.quit()
-})
+    await ebayPage.driver.quit()
+}, 30000)

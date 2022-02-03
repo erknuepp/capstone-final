@@ -8,8 +8,8 @@ const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 var homePage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
 // Clean up driver after test
-afterEach(() => {
-    homePage.driver.quit();
+afterEach(async() => {
+    await homePage.driver.quit();
 });
 
 
@@ -38,4 +38,4 @@ test('Yoox checkout', async() => {
 
     const shoppingBagPage = new YooxShoppingBagPage(driver, null);
     await shoppingBagPage.clickProceedWithYourOrder();
-})
+}, 30000)

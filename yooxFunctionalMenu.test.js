@@ -4,8 +4,8 @@ const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 var myPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
 // Clean up driver after test
-afterEach(() => {
-    homePage.driver.quit();
+afterEach(async() => {
+    await homePage.driver.quit();
 });
 
 test('Yoox menu', async() => {
@@ -19,4 +19,4 @@ test('Yoox menu', async() => {
 
 
     await myPage.driver.quit()
-})
+}, 30000)

@@ -4,8 +4,8 @@ const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 const myPage = new YooxPage(driver, 'https://www.yoox.com/us/women')
 
 // Clean up driver after test
-afterEach(() => {
-    homePage.driver.quit();
+afterEach(async() => {
+    await homePage.driver.quit();
 });
 
 test('Yoox features', async() => {
@@ -29,8 +29,7 @@ test('Yoox features', async() => {
         // select material "cotton"  //
     selectText = By.Xpath('//*[@id="section-mtrl"]/div[2]/div/ul/li/a/span[2]')
 
-    await myPage.driver.quit()
-})
+}, 30000)
 
 
 /* constructor(driver, url) {

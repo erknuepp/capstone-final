@@ -1,28 +1,28 @@
 const { Builder, Capabilities } = require("selenium-webdriver");
 const EbayPage = require("./ebayPage");
-
+const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
+var ebayPage = new EbayPage(driver, 'https://www.ebay.com/');
 
 // Clean up driver after test
-afterEach(() => {
-    homePage.driver.quit();
+afterEach(async() => {
+    await ebayPage.driver.quit();
 });
 
 test('Filter eBay', async() => {
-    const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
-    var myPage = new EbayPage(driver, 'https://www.ebay.com/');
-    await myPage.navigate();
-    // click into search bar, type in search request, click search button //
-    await myPage.doSearch('puppies');
-    // scroll down left column to "condition", click "new" //
-    myPage = new EbayPage(driver, 'https://www.ebay.com/');
-    await myPage.filterConditionNew();
 
-    myPage = new EbayPage(driver, 'https://www.ebay.com/')
+    await ebayPage.navigate();
+    // click into search bar, type in search request, click search button //
+    await ebayPage.doSearch('puppies');
+    // scroll down left column to "condition", click "new" //
+    ebayPage = new EbayPage(driver, 'https://www.ebay.com/');
+    await ebayPage.filterConditionNew();
+
+    ebayPage = new EbayPage(driver, 'https://www.ebay.com/')
         // continue scrolling down left column to "shipping options", click "free" //
-    await myPage.filterFreeShipping();
-    myPage = new EbayPage(driver, 'https://www.ebay.com/');
+    await ebayPage.filterFreeShipping();
+    ebayPage = new EbayPage(driver, 'https://www.ebay.com/');
     // continue scrolling down left column to "return options", click "free" //
-    await myPage.filterShowOnlyFreeReturns();
+    await ebayPage.filterShowOnlyFreeReturns();
     // scroll further down left column to "see all", click //
-    myPage = new EbayPage(driver, 'https://www.ebay.com/');
-});
+    ebayPage = new EbayPage(driver, 'https://www.ebay.com/');
+}, 30000);
